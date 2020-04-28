@@ -2,7 +2,8 @@
 function URLS(){
 
     function backendURL() {
-        const URL = "https://cahits.dk/SYS-Gruppe3";
+       // const URL = "https://cahits.dk/SYS-Gruppe3";
+        const URL = "http://localhost:8080/startcode";
         return URL;
     }
 

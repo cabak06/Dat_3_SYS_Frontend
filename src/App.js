@@ -8,6 +8,7 @@ import { External } from "./External";
 import { LoginAndOut } from "./LoginAndOut";
 import { Admin } from "./Admin";
 import { UserJoke } from "./UserJokes";
+import { AddJoke } from "./AddJoke";
 
 export default App;
 
@@ -35,11 +36,12 @@ function App() {
           <Route path="/admin-page">
             <Admin />
           </Route>
-
           <Route path="/userJoke">
             <UserJoke/>
           </Route>
-
+          <Route path="/add-joke">
+            <AddJoke/>
+          </Route>
           <Route path="/login-out">
             <LoginAndOut 
              loginMsg={isLoggedIn ? "Logout" : "Login"}

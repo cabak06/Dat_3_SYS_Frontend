@@ -12,17 +12,15 @@ export function Header({isLoggedIn, loginMsg}) {
       <li><NavLink activeClassName="active" to="/external">External</NavLink></li>
         {facade.isAdmin() &&(
         <> 
-        
-      
-        <li><NavLink activeClassName="active" to="/admin-page">Admin Page</NavLink></li>
-        
-    
+        <li><NavLink activeClassName="active" to="/admin-page">Admin Page</NavLink></li>      
         </>
-         
         )}
 
       {(facade.isUser() || facade.isAdmin()) &&  (
+        <>
           <li><NavLink activeClassName="active" to="/userJoke">User-Jokes</NavLink></li> 
+          <li><NavLink activeClassName="active" to="/add-joke">Add your own joke</NavLink></li> 
+        </>
       )}  
       </>
       )}

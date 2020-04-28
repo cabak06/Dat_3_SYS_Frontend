@@ -7,19 +7,25 @@ function URLS(){
     }
 
     function externalApi() {
-        const URL = "https://cahits.dk/SYS-Gruppe3/api/info/external";
+        const URL = backendURL() + "/api/info/external";
+        return URL;
+    }
+
+    function internalApi() {
+        const URL = backendURL() + "/api/joke";
         return URL;
     }
 
     function internalJokes(){
-        const URL = "http://localhost:8080/startcode/api/joke/userjokes";
+        const URL = backendURL() + "/api/joke/userjokes";
         return URL;
-    }
+    }   
 
     return {
         backendURL,
         externalApi,
-        internalJokes
+        internalJokes,
+        internalApi
     }
 
 }

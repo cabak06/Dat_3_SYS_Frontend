@@ -4,8 +4,7 @@ import settingUrl from "./settings";
 export function External() {
   const [norris, setNorris] = useState(<br/>);
   const [dad, setDad] = useState(<br/>);
-  const [country, setCountry] = useState(<br/>);
-  const [time, setTime] = useState(<br/>);
+
   
   const URL = settingUrl.externalApi();
   
@@ -23,8 +22,7 @@ export function External() {
         console.log(data);
         setDad(data.dadJoke);
         setNorris(data.chuckJoke);
-        setCountry(data.countryName);
-        setTime(data.copenhagenTime);
+
       });
   }
   return (<div>
@@ -34,9 +32,6 @@ export function External() {
     <p>{norris}</p>
     <h2>Dad joke:</h2>
     <p>{dad}</p>
-    <h2>Country: </h2>
-    <p>{country}</p>
-    <h2>Copenhagen Timezone:</h2>
-    <p>{time}</p>
+ 
   </div>);
 }

@@ -7,7 +7,7 @@ import { Header } from "./Header";
 import { External } from "./External";
 import { LoginAndOut } from "./LoginAndOut";
 import { Admin } from "./Admin";
-import { UserJoke } from "./UserJokes";
+import { UserJokes } from "./UserJokes";
 
 export default App;
 
@@ -37,7 +37,7 @@ function App() {
           </Route>
 
           <Route path="/userJoke">
-            <UserJoke/>
+            <UserJokes/>
           </Route>
 
           <Route path="/login-out">

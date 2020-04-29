@@ -9,6 +9,7 @@ import { LoginAndOut } from "./LoginAndOut";
 import { Admin } from "./Admin";
 import { UserJokes } from "./UserJokes";
 import { AddJoke } from "./AddJoke";
+import { Register } from "./Register";
 
 
 export default App;
@@ -42,6 +43,9 @@ function App() {
           </Route>
           <Route path="/add-joke">
             <AddJoke/>
+          </Route>
+          <Route path="/register">
+            <Register />
           </Route>
           <Route path="/login-out">
             <LoginAndOut 

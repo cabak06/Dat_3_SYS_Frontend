@@ -59,6 +59,13 @@ export function Header({ isLoggedIn, loginMsg }) {
             {loginMsg}
           </NavLink>
         </li>
+        {!isLoggedIn && (
+          <li>
+            <NavLink activeClassName="active" to="/register">
+              Register
+            </NavLink>
+          </li>
+        )}
       </ul>
     </div>
   );

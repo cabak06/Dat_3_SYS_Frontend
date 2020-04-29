@@ -22,11 +22,17 @@ function URLS(){
         return URL;
     }   
 
+    function registerUser(){
+        const URL = backendURL() + "/api/user/register";
+        return URL;
+    } 
+
     return {
         backendURL,
         externalApi,
         internalJokes,
-        internalApi
+        internalApi,
+        registerUser
     }
 
 }

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import settingUrl from "./settings";
 
 export function Register() {
-  let blankUser = {username: "", password: ""};
+  let blankUser = { username: "", password: "" };
   const [user, setUser] = useState({ ...blankUser });
   const [error, setError] = useState("");
 
@@ -31,6 +31,9 @@ export function Register() {
         console.log(data);
         if (data.error) {
           setError(data.error);
+        } else {
+          setError(data.msg);
+          setUser(blankUser);
         }
       });
   }
@@ -44,6 +47,7 @@ export function Register() {
           type="text"
           placeholder="Username"
           id="username"
+          value={user.username}
           onChange={changeHandler}
         />
       </p>
@@ -53,11 +57,17 @@ export function Register() {
           type="text"
           placeholder="Password"
           id="password"
+          value={user.password}
           onChange={changeHandler}
         />
       </p>
       <button onClick={submitHandler}>Sign Up</button>
-      {error && (<><br/><i style={{ color: 'red' }}>{error}</i></>)}
+      {error && (
+        <>
+          <br />
+          <i style={{ color: error.includes("User registered") ? "green" : "red" }}>{error}</i>
+        </>
+      )}
     </>
   );
 }

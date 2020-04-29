@@ -49,11 +49,11 @@ const login = (user, password) => {
   }
 const fetchUserData = () => {
     const options = makeOptions("GET",true); //True add's the token
-    return fetch(URL + "/api/info/user", options).then(handleHttpErrors);  
+    return fetch(URL + "/api/user/user", options).then(handleHttpErrors);  
 }
 const fetchAdminData = () => {
   const options = makeOptions("GET",true); //True add's the token
-  return fetch(URL + "/api/info/admin", options).then(handleHttpErrors);  
+  return fetch(URL + "/api/user/admin", options).then(handleHttpErrors);  
 }
 const makeOptions= (method,addToken,body) =>{
    var opts = {

@@ -8,7 +8,7 @@ function URLS(){
     }
 
     function externalApi() {
-        const URL = backendURL() + "/api/info/external";
+        const URL = backendURL() + "/api/externalJoke/random";
         return URL;
     }
 

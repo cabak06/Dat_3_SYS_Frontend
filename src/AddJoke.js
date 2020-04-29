@@ -33,7 +33,6 @@ export function AddJoke() {
 
     function changeHandler(event) {
         setJoke(event.target.value);
-        console.log(joke);
     }
 
   return (

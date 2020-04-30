@@ -28,7 +28,7 @@ function LogIn({ login, loginMsg }) {
     <h2>{loginMsg}</h2>
     <form onChange={onChange}>
       <input placeholder="User Name" id="username" /> <br/>
-      <input placeholder="Password" id="password" /> <br/>
+      <input placeholder="Password" id="password" type="password"/> <br/>
       <button onClick={performLogin}>Login</button>
     </form>
   </div>);

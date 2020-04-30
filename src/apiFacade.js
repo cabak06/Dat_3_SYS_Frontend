@@ -40,12 +40,18 @@ const isUser = () => {
   const isAdmin = String(getRoles()).includes("user");
   return isAdmin;
 }
+const setNsfw = (nsfw) => {
+  localStorage.setItem('nsfwIsActive', nsfw)
+}
+const getNsfw = () => {
+  return localStorage.getItem('nsfwIsActive')
+}
 
 const login = (user, password) => {
     const options = makeOptions("POST", true,{username: user, password: password });
     return fetch(URL + "/api/login", options)
       .then(handleHttpErrors)
-      .then(res => {setToken(res.token); console.log(res); setRoles(res.roles) })
+      .then(res => {setToken(res.token); console.log(res); setRoles(res.roles); setNsfw(res.nsfwIsActive) })
   }
 const fetchUserData = () => {
     const options = makeOptions("GET",true); //True add's the token
@@ -81,7 +87,9 @@ const makeOptions= (method,addToken,body) =>{
      fetchUserData,
      fetchAdminData,
      isAdmin,
-     isUser
+     isUser,
+     getNsfw,
+     setNsfw
  }
 }
 const facade = apiFacade();

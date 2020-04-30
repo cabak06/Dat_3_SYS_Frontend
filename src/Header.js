@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import facade from "./apiFacade";
+import {NsfwToggle} from "./Nsfw";
 
 export function Header({ isLoggedIn, loginMsg }) {
   return (
@@ -36,6 +37,10 @@ export function Header({ isLoggedIn, loginMsg }) {
                     Add your own joke
                   </NavLink>
                 </li>
+                
+                <div style={{float: "right", paddingRight: "10px", paddingTop: "8px"}}>
+                  <NsfwToggle/>
+                </div>  
               </>
             )}
             {/*
@@ -69,4 +74,5 @@ export function Header({ isLoggedIn, loginMsg }) {
       </ul>
     </div>
   );
+  
 }

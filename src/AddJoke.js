@@ -4,9 +4,11 @@ import settingUrl from "./settings";
 export function AddJoke() {
   const URL = settingUrl.internalApi();
   const [joke, setJoke] = useState("");
+  const [nsfw, setNsfw] = useState(false);
 
   function PostInternalApi(jokeInput) {
-    let input = { jokeContent: jokeInput };
+    
+    let input = { jokeContent: jokeInput, nsfw:  nsfw};
     let options = {
       method: "POST",
       headers: {
@@ -20,7 +22,9 @@ export function AddJoke() {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        setNsfw(false);
       });
+
   }
 
   function submitHandler(event) {
@@ -31,6 +35,11 @@ export function AddJoke() {
 
   function changeHandler(event) {
     setJoke(event.target.value);
+  }
+
+  function changeHandlerNSFW(event) {
+    console.log(event.target.checked);
+    setNsfw(event.target.checked);
   }
 
   return (
@@ -46,7 +55,12 @@ export function AddJoke() {
           onChange={changeHandler}
         />
         <br />
-        <input type="checkbox" id="nsfwCheck" className="" />
+        <input type="checkbox" 
+        id="nsfwCheck" 
+        style={{width: "15px", height: "15px"}} 
+        onChange={changeHandlerNSFW} 
+        checked={nsfw}
+        />
         <label htmlFor="nsfwCheck">NSFW?</label>
         <br />
         <input type="submit" value="Submit Joke" />

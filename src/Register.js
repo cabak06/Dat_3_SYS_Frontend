@@ -54,7 +54,7 @@ export function Register() {
       <p>
         Password:{" "}
         <input
-          type="text"
+          type="password"
           placeholder="Password"
           id="password"
           value={user.password}

@@ -37,10 +37,15 @@ export function Header({ isLoggedIn, loginMsg }) {
                     Add your own joke
                   </NavLink>
                 </li>
+                <li>
+                  <NavLink activeClassName="active" to="/my-jokes">
+                    My Jokes
+                  </NavLink>
+                </li>
                 
                 <div style={{float: "right", paddingRight: "10px", paddingTop: "8px"}}>
                   <NsfwToggle/>
-                </div>  
+                </div>
               </>
             )}
             {/*

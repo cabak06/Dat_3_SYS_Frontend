@@ -1,39 +1,42 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import settingUrl from "./settings";
+import facade from "./apiFacade";
 
 export function UserJokes() {
   const URL = settingUrl.internalJokes();
   const [userJokes, setUserJokes] = useState([]);
-  const token = localStorage.getItem("jwtToken");
-  let options = {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-  };
-  if (token) {
-    options.headers["x-access-token"] = token;
-  }
+  let options = facade.makeOptions("GET", true);
+
+  useEffect(() => {
+    fetchInternalJokes();
+  }, []);
 
   function fetchInternalJokes() {
-    console.log(URL);
-    fetch(URL, options)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setUserJokes(data.jokeList);
-      });
+    facade.fetchInternalJokes("/api/joke/userjokes", setUserJokes);
   }
 
   return (
     <div>
       <h1>UserJoke</h1>
-
       <button onClick={fetchInternalJokes}>Press to fetch from API's!</button>
-      {userJokes.map((joke) => {
-        return <p key={joke.id}>{joke.jokeContent}</p>
-      })}
+      <table border="1" width="50%">
+        <thead>
+          <tr>
+            <th>Jokes</th>
+            <th width="150px">Created By</th>
+          </tr>
+        </thead>
+        <tbody>
+          {userJokes.map((joke) => {
+            return (
+              <tr key={joke.id}>
+                <td>{joke.jokeContent}</td>
+                <td>{joke.createdBy}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
     </div>
   );
 }

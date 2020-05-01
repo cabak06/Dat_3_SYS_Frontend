@@ -7,7 +7,7 @@ export function Admin() {
   const URL = "/api/joke/userjokes";
 
   const deleteJoke = (id) => {
-    facade.deleteInternalJokes(id, facade.fetchInternalJokes, URL, setJokeList);
+    facade.deleteInternalJokes(id, URL, setJokeList);
   };
 
   const fetchJokes = () => facade.fetchInternalJokes(URL, setJokeList);

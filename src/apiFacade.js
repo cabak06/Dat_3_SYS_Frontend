@@ -102,9 +102,9 @@ function apiFacade() {
     return opts;
   };
 
-  const fetchInternalJokes = (endURL, setJokeList) => {
+  const fetchInternalJokes = (fetchURL, setJokeList) => {
     let options = makeOptions("GET", true);
-    fetch(URL + endURL, options)
+    fetch(URL + fetchURL, options)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -112,12 +112,20 @@ function apiFacade() {
       });
   }
 
-  const deleteInternalJokes = (id, fetchInternalJokes, endURL, setJokeList) => {
+  const deleteInternalJokes = (id, fetchURL, setJokeList) => {
+    let deleteURL = isAdmin() ? "/api/joke/" : "/api/joke/userdelete/"; 
     let options = facade.makeOptions("DELETE", true);
-    fetch(URL + "/api/joke/" + id, options)
+    fetch(URL + deleteURL + id, options)
     .then(console.log("Delete done on joke ID: " + id))
-    .then(setTimeout(()=>fetchInternalJokes(endURL, setJokeList),50));
+    .then(setTimeout(()=>fetchInternalJokes(fetchURL, setJokeList),75));
   }
+
+  const editOwnJoke = (body) => {
+    let options = facade.makeOptions("PUT", true, body);
+    fetch(URL + "/api/joke/editjoke", options)
+    .then(handleHttpErrors)
+    .then(data => {console.log(data)});
+  };
 
   return {
     makeOptions,
@@ -133,7 +141,8 @@ function apiFacade() {
     getNsfw,
     setNsfw,
     fetchInternalJokes, 
-    deleteInternalJokes
+    deleteInternalJokes,
+    editOwnJoke
   };
 }
 const facade = apiFacade();

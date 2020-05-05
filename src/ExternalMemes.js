@@ -20,17 +20,16 @@ export function ExternalMeme() {
         setDark(data.darkMeme);
         setreddit(data.redditMeme);
       });
-
   }
   return (
     <div>
       <h1>External Meme's</h1>
       <button onClick={fetchExternalApi}>Press to update meme's!</button>
       <h2>Reddit Meme: </h2>
-      <img src={reddit} alt="new" style={{width: "30%"}}/>
-      <hr/>
+      <img src={reddit} alt="new" style={{ width: "30%" }} />
+      <hr />
       <h2>Dank Meme:</h2>
-      <img src={dark} alt="new" style={{width: "30%"}}/>
+      <img src={dark} alt="new" style={{ width: "30%" }} />
     </div>
   );
 }

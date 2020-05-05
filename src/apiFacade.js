@@ -114,8 +114,9 @@ function apiFacade() {
   const fetchInternalMemes = (fetchURL, setMemeList) => {
     let options = makeOptions("GET", true);
     fetch(URL + fetchURL, options)
-      .then((res) => res.json())
+      .then(handleHttpErrors)
       .then((data) => {
+        data.memeList.sort((a,b)=>b.id-a.id)
         console.log(data);
         setMemeList(data.memeList);
       });

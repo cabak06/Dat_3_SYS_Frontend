@@ -17,26 +17,29 @@ export function UserMemes() {
 
   return (
     <div>
-      <h1>UserMeme</h1>
+      <h1>User-submitted Memes</h1>
       <button onClick={fetchInternalMemes}>Press to fetch from API's!</button>
-      <table border="1" width="50%">
-        <thead>
-          <tr>
-            <th>Memes</th>
-            <th width="150px">Created By</th>
-          </tr>
-        </thead>
-        <tbody>
-          {userMemes.map((meme) => {
-            return (
-              <tr key={meme.id}>
-                <td>{meme.picturePath}</td>
-                <td>{meme.createdBy}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+
+      {userMemes.map((meme) => {
+        return (
+          <>
+            <div
+              key={meme.id}
+              style={{ width: "35%", margin: "0 auto", textAlign: "center" }}
+            >
+              <h2 style={{ textAlign: "left" }}>{meme.title}</h2>
+              <img src={meme.picturePath} alt="new" style={{ width: "100%" }} />
+              <p style={{ textAlign: "right", marginTop: "-2px" }}>
+                <i>Created by: {meme.createdBy}</i>
+              </p>
+            </div>
+            <br />
+            <hr style={{ width: "40%", margin: "auto", align: "center" }} />
+            <br />
+            <br />
+          </>
+        );
+      })}
     </div>
   );
 }

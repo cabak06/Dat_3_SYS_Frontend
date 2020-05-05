@@ -42,6 +42,11 @@ export function Header({ isLoggedIn, loginMsg }) {
                     My Jokes
                   </NavLink>
                 </li>
+                <li>
+                  <NavLink activeClassName="active" to="/external-meme">
+                    External Meme's
+                  </NavLink>
+                </li>
                 
                 <div style={{float: "right", paddingRight: "10px", paddingTop: "8px"}}>
                   <NsfwToggle/>

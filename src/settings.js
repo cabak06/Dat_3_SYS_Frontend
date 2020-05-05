@@ -12,6 +12,11 @@ function URLS(){
         return URL;
     }
 
+    function externalMeme() {
+        const URL = backendURL() + "/api/externalMeme/random";
+        return URL;
+    }
+
     function internalApi() {
         const URL = backendURL() + "/api/joke";
         return URL;
@@ -32,7 +37,8 @@ function URLS(){
         externalApi,
         internalJokes,
         internalApi,
-        registerUser
+        registerUser,
+        externalMeme
     }
 
 }

@@ -42,6 +42,11 @@ export function Header({ isLoggedIn, loginMsg }) {
                     My Jokes
                   </NavLink>
                 </li>
+                <li>
+                  <NavLink activeClassName="active" to="/external-meme">
+                    external memes
+                  </NavLink>
+                </li>
 
                 <div
                   style={{

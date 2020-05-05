@@ -7,7 +7,7 @@ export function NsfwToggle() {
   const [toggle, setToggle] = useState(checkToggle());
 
   function checkToggle() {
-    return facade.getNsfw() == "false";
+    return facade.getNsfw() === "false";
   }
 
   function changeNsfwSetting() {
@@ -32,7 +32,10 @@ export function NsfwToggle() {
   }
   return (
     <>
-      <label htmlFor="nsfwOnOff" style={{ color: "white", paddingRight: "8px" }}>
+      <label
+        htmlFor="nsfwOnOff"
+        style={{ color: "white", paddingRight: "8px" }}
+      >
         NSFW:
       </label>
       <button

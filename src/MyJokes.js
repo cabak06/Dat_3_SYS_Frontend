@@ -20,7 +20,7 @@ export function MyJokes() {
   }
 
   const editJoke = (id) => {
-    let joke = jokeList.filter((joke) => joke.id == id)[0];
+    let joke = jokeList.filter((joke) => joke.id === id)[0];
     setEditingJoke(joke);
   };
 

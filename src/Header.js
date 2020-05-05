@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import facade from "./apiFacade";
-import {NsfwToggle} from "./Nsfw";
+import { NsfwToggle } from "./Nsfw";
 
 export function Header({ isLoggedIn, loginMsg }) {
   return (
@@ -42,9 +42,15 @@ export function Header({ isLoggedIn, loginMsg }) {
                     My Jokes
                   </NavLink>
                 </li>
-                
-                <div style={{float: "right", paddingRight: "10px", paddingTop: "8px"}}>
-                  <NsfwToggle/>
+
+                <div
+                  style={{
+                    float: "right",
+                    paddingRight: "10px",
+                    paddingTop: "8px",
+                  }}
+                >
+                  <NsfwToggle />
                 </div>
               </>
             )}
@@ -58,6 +64,12 @@ export function Header({ isLoggedIn, loginMsg }) {
                 <li>
                   <NavLink activeClassName="active" to="/userJoke">
                     User-Jokes
+                  </NavLink>
+                </li>
+
+                <li>
+                  <NavLink activeClassName="active" to="/userMeme">
+                    User-Memes
                   </NavLink>
                 </li>
               </>
@@ -79,5 +91,4 @@ export function Header({ isLoggedIn, loginMsg }) {
       </ul>
     </div>
   );
-  
 }

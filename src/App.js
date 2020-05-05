@@ -6,6 +6,7 @@ import { LoginAndOut } from "./LoginAndOut";
 import { Admin } from "./Admin";
 import { UserJokes } from "./UserJokes";
 import { AddJoke } from "./AddJoke";
+import { UserMemes } from "./UserMemes";
 import { Register } from "./Register";
 import { MyJokes } from "./MyJokes";
 
@@ -40,6 +41,9 @@ function App() {
             </Route>
             <Route path="/add-joke">
               <AddJoke />
+            </Route>
+            <Route path="/userMeme">
+              <UserMemes />
             </Route>
             <Route path="/register">
               <Register />

@@ -47,6 +47,11 @@ export function Header({ isLoggedIn, loginMsg }) {
                     Random Memes
                   </NavLink>
                 </li>
+                <li>
+                  <NavLink activeClassName="active" to="/add-meme">
+                    Add your own meme
+                  </NavLink>
+                </li>
 
                 <div
                   style={{

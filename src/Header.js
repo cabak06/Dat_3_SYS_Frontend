@@ -82,6 +82,11 @@ export function Header({ isLoggedIn, loginMsg }) {
                     User-Memes
                   </NavLink>
                 </li>
+                <li>
+                  <NavLink activeClassName="active" to="/userSettings">
+                    User-Settings
+                  </NavLink>
+                </li>
               </>
             )}
           </>

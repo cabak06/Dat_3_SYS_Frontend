@@ -10,6 +10,7 @@ import { UserMemes } from "./UserMemes";
 import { Register } from "./Register";
 import { MyJokes } from "./MyJokes";
 import { ExternalMeme } from "./ExternalMemes";
+import { UserSettings } from "./UserSettings";
 
 export default App;
 
@@ -54,6 +55,9 @@ function App() {
             </Route>
             <Route path="/external-meme">
               <ExternalMeme/>
+            </Route>
+            <Route path="/usersettings">
+              <UserSettings/>
             </Route>
             <Route path="/login-out">
               <LoginAndOut

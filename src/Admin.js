@@ -3,6 +3,7 @@ import facade from "./apiFacade";
 
 export function Admin() {
   const [jokeList, setJokeList] = useState([]);
+  const [userList, setUserList] = useState([]);
 
   const URL = "/api/joke/userjokes";
 
@@ -13,12 +14,18 @@ export function Admin() {
   const fetchJokes = () => facade.fetchInternalJokes(URL, setJokeList);
   useEffect(fetchJokes, []);
 
+  const deleteUser = (username) => {
+    facade.deleteNonAdmins('/api/user/' + username, setUserList);
+  };
+  const fetchUsers = () => facade.fetchNonAdmins('/api/user/allNonAdminUsers', setUserList);
+  useEffect(fetchUsers, []);
+
   return (
-    <div>
+    <div style={{}}>
+      <div>
       <h1>User Jokes</h1>
-      <hr />
-      <button onClick={fetchJokes}>Press to fetch from API's!</button>
-      <table border="1" width="50%">
+      <button onClick={fetchJokes}>Press to reloade the table!</button>
+      <table border="1" width="40%">
         <thead>
           <tr>
             <th>Jokes</th>
@@ -40,6 +47,31 @@ export function Admin() {
           })}
         </tbody>
       </table>
+      </div>
+      <div style={{}}>
+      <h1>Delete users</h1>
+      <button onClick={fetchUsers}>Press to reloade the table!</button>
+      <table border="1" width="40%" >
+        <thead>
+          <tr>
+            <th>User Name</th>
+            <th width="50px"></th>
+          </tr>
+        </thead>
+        <tbody>
+          {userList.map((user) => {
+            return (
+              <tr key={user.username}>
+                <td>{user.username}</td>
+                <td align="center">
+                  <button onClick={()=>deleteUser(user.username)}>DELETE</button>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+      </div>
     </div>
   );
 }

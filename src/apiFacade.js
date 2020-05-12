@@ -122,12 +122,31 @@ function apiFacade() {
       });
   };
 
+  //Needs to be corrected when backend is made
+  const fetchNonAdmins = (fetchURL, setUserList) => {
+    let options = makeOptions("GET", true);
+    fetch(URL + fetchURL, options)
+      .then(handleHttpErrors)
+      .then((data) => {
+        data.userList.sort((a,b)=>b.id-a.id)
+        console.log(data);
+        setUserList(data.userList);
+      });
+  };
+
   const deleteInternalJokes = (id, fetchURL, setJokeList) => {
     let deleteURL = isAdmin() ? "/api/joke/" : "/api/joke/userdelete/";
     let options = facade.makeOptions("DELETE", true);
     fetch(URL + deleteURL + id, options)
       .then(console.log("Delete done on joke ID: " + id))
       .then(setTimeout(() => fetchInternalJokes(fetchURL, setJokeList), 75));
+  };
+
+
+  const deleteNonAdmins = (fetchURL, setUserList) => {
+    let options = facade.makeOptions("DELETE", true);
+    fetch(URL + fetchURL, options)
+      .then(setTimeout(() => fetchNonAdmins("/api/user/allNonAdminUsers", setUserList), 75));
   };
 
   const editOwnJoke = (body) => {
@@ -156,6 +175,8 @@ function apiFacade() {
     fetchInternalMemes,
     deleteInternalJokes,
     editOwnJoke,
+    deleteNonAdmins,
+    fetchNonAdmins,
   };
 }
 const facade = apiFacade();

@@ -29,8 +29,46 @@ ul.header {
   padding: 14px 16px;
   text-decoration: none;
  }
- ul.header li a:hover:not(.active) { background-color: #111;}
+ ul.header li a:hover:not(.active), .dropdown:hover, .dropbtn  { background-color: #111;}
  ul.header .active { background-color: #4CAF50;} /*Only gives the headers the active green color*/
+
+ .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  min-width: 20px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
 
  .content {
   padding: 1px 16px;

@@ -6,6 +6,11 @@ export function External() {
   const [norris, setNorris] = useState(<br />);
   const [dad, setDad] = useState(<br />);
   const [joker, setJoker] = useState(<br />);
+  const nsfwMsg = "This joke requires you to be logged in and have NSFW toggled ON";
+  
+  function jokeAllowed (joke){
+    return joke !== nsfwMsg;
+  }
 
   const URL = settingUrl.externalApi();
   useEffect(() => {
@@ -20,7 +25,8 @@ export function External() {
         console.log(data);
         setDad(data.dadJoke);
         setNorris(data.chuckJoke);
-        data.jokerNSFW ? setJoker(data.jokerJoke) : setJoker("This joke requires you to be logged in and have NSFW toggled ON");
+        let jokeAllowed = (!data.jokerNSFW || facade.getNsfw() == "true");
+        jokeAllowed ? setJoker(data.jokerJoke) : setJoker(nsfwMsg);
       });
   }
   return (
@@ -32,7 +38,7 @@ export function External() {
       <h2>Dad joke:</h2>
       <p>{dad}</p>
       <h2>Joker joke:</h2>
-      <p>{joker}</p>
+      <p style={{color : jokeAllowed(joker) ? "black" : "red"}}>{joker}</p>
     </div>
   );
 }

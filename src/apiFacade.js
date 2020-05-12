@@ -107,7 +107,7 @@ function apiFacade() {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        setJokeList(data.jokeList);
+        data.jokeList ?  setJokeList(data.jokeList) : setJokeList([]);
       });
   };
 

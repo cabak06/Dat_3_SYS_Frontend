@@ -40,6 +40,15 @@ function URLS() {
     return URL;
   }
 
+
+    function addFavoriteJoke(){
+      const URL = backendURL() + "/api/joke/favorite"
+    }
+
+    function getFavoriteJokes(){
+      const URL = backendURL() + "/api/joke/favorites"
+    }
+
   return {
     backendURL,
     externalApi,
@@ -49,6 +58,8 @@ function URLS() {
     internalApi,
     registerUser,
     changePassword,
+    addFavoriteJoke,
+    getFavoriteJokes,
   };
 }
 const settingUrl = URLS();

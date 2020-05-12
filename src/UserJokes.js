@@ -6,6 +6,7 @@ export function UserJokes() {
   const URL = settingUrl.internalJokes();
   const [userJokes, setUserJokes] = useState([]);
   const [update,setUpdate] = useState(false);
+  const [favoriteJokes,setFavoriteJokes] = useState([]);
   let options = facade.makeOptions("GET", true);
 
   useEffect(() => {
@@ -41,6 +42,13 @@ setUpdate(!update);
 setUserJokes(sortedJokesByID);
 setUpdate(!update);
 }
+
+function addToFavoriteList(id){
+  let joke = userJokes.filter((joke) => joke.id === id)[0];
+
+  console.log(joke);
+ 
+}
  
   return (
     <div>
@@ -55,6 +63,7 @@ setUpdate(!update);
           <tr>
             <th>Jokes</th>
             <th width="150px">Created By</th>
+            <th width="50px">Favorite-List</th>
           </tr>
         </thead>
         <tbody>
@@ -63,6 +72,9 @@ setUpdate(!update);
               <tr key={joke.id}>
                 <td>{joke.jokeContent}</td>
                 <td>{joke.createdBy}</td>
+                <td align="center">
+                  <button onClick={() => addToFavoriteList(joke.id)}>Add Favorite</button>
+                </td>
               </tr>
             );
           })}

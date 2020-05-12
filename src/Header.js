@@ -30,65 +30,82 @@ export function Header({ isLoggedIn, loginMsg }) {
                 </li>
               </>
             )}
-            {facade.isUser() && (
-              <>
-                <li>
-                  <NavLink activeClassName="active" to="/add-joke">
-                    Add your own joke
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink activeClassName="active" to="/my-jokes">
-                    My Jokes
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink activeClassName="active" to="/external-meme">
-                    Random Memes
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink activeClassName="active" to="/add-meme">
-                    Add your own meme
-                  </NavLink>
-                </li>
-
-                <div
-                  style={{
-                    float: "right",
-                    paddingRight: "10px",
-                    paddingTop: "8px",
-                  }}
-                >
-                  <NsfwToggle />
+            <>
+            {/*Dropdown menuer*/}
+              <div className="dropdown">
+                <button className="dropbtn">
+                  Jokes &nbsp;▼
+                  <i className="fa fa-caret-down"></i>
+                </button>
+                <div className="dropdown-content">
+                  {(facade.isUser() || facade.isAdmin()) && (
+                    <li>
+                      <NavLink activeClassName="active" to="/userJoke">
+                        User-Jokes
+                      </NavLink>
+                    </li>
+                  )}
+                  {facade.isUser() && (
+                    <li>
+                      <NavLink activeClassName="active" to="/add-joke">
+                        Add your own joke
+                      </NavLink>
+                    </li>
+                  )}
+                  {facade.isUser() && (
+                    <li>
+                      <NavLink activeClassName="active" to="/my-jokes">
+                        My Jokes
+                      </NavLink>
+                    </li>
+                  )}
                 </div>
-              </>
-            )}
-            {/*
-              This following if-statement is technicly overkill, since we have this question nested in a login question, 
-              and at the time of writting, these are the only two roles, meaning that if a user is logged in, 
-              this nested boolean will always be true. We keep this, in case we later add more roles.
-              */}
-            {(facade.isUser() || facade.isAdmin()) && (
-              <>
-                <li>
-                  <NavLink activeClassName="active" to="/userJoke">
-                    User-Jokes
-                  </NavLink>
-                </li>
-
-                <li>
-                  <NavLink activeClassName="active" to="/userMeme">
-                    User-Memes
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink activeClassName="active" to="/userSettings">
-                    User-Settings
-                  </NavLink>
-                </li>
-              </>
-            )}
+              </div>
+              <div className="dropdown">
+                <button className="dropbtn">
+                  Memes &nbsp;▼
+                  <i className="fa fa-caret-down"></i>
+                </button>
+                <div className="dropdown-content">
+                  {(facade.isUser() || facade.isAdmin()) && (
+                    <li>
+                      <NavLink activeClassName="active" to="/userMeme">
+                        User-Memes
+                      </NavLink>
+                    </li>
+                  )}
+                  {facade.isUser() && (
+                    <li>
+                    <NavLink activeClassName="active" to="/add-meme">
+                      Add your own meme
+                    </NavLink>
+                  </li>
+                  )}
+                  {facade.isUser() && (
+                    <li>
+                    <NavLink activeClassName="active" to="/external-meme">
+                      Random Memes
+                    </NavLink>
+                  </li>
+                  )}
+                </div>
+              </div>
+              {/*Her til*/}
+              <li>
+                <NavLink activeClassName="active" to="/userSettings">
+                  User-Settings
+                </NavLink>
+              </li>
+              <div
+                style={{
+                  float: "right",
+                  paddingRight: "10px",
+                  paddingTop: "8px",
+                }}
+              >
+                <NsfwToggle />
+              </div>
+            </>
           </>
         )}
         <li>

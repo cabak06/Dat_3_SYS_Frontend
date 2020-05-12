@@ -28,6 +28,7 @@ function apiFacade() {
   const logout = () => {
     localStorage.removeItem("jwtToken");
     localStorage.removeItem("loginRoles");
+    localStorage.removeItem("nsfwIsActive");
   };
 
   const setRoles = (roles) => {

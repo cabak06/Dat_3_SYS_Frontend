@@ -159,6 +159,16 @@ function apiFacade() {
       });
   };
 
+  const addFavoriteJoke = (id) => {
+    let option = facade.makeOptions("PUT",true);
+    fetch(settingUrl.addFavoriteJoke() + "/"+ id,option)
+    .then(handleHttpErrors)
+    .then((data) => {
+      console.log(data);
+    });
+    
+  }
+
   return {
     makeOptions,
     setToken,
@@ -178,6 +188,7 @@ function apiFacade() {
     editOwnJoke,
     deleteNonAdmins,
     fetchNonAdmins,
+    addFavoriteJoke,
   };
 }
 const facade = apiFacade();

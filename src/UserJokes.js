@@ -45,9 +45,10 @@ setUpdate(!update);
 
 function addToFavoriteList(id){
   let joke = userJokes.filter((joke) => joke.id === id)[0];
+  
 
-  console.log(joke);
- 
+  facade.addFavoriteJoke(id);
+  
 }
  
   return (

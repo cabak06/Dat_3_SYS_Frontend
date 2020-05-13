@@ -43,10 +43,12 @@ function URLS() {
 
     function addFavoriteJoke(){
       const URL = backendURL() + "/api/joke/favorite"
+      return URL;
     }
 
     function getFavoriteJokes(){
       const URL = backendURL() + "/api/joke/favorites"
+      return URL;
     }
 
   return {

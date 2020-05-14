@@ -58,6 +58,15 @@ export function Header({ isLoggedIn, loginMsg }) {
                         My Jokes
                       </NavLink>
                     </li>
+                    
+                  )}
+                    {facade.isUser() && (
+                    <li>
+                      <NavLink activeClassName="active" to="/favorite-jokes">
+                       My Favorite Jokes
+                      </NavLink>
+                    </li>
+                    
                   )}
                 </div>
               </div>

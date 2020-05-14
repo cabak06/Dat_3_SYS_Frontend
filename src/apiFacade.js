@@ -166,8 +166,27 @@ function apiFacade() {
     .then((data) => {
       console.log(data);
     });
-    
   }
+
+
+  const removeFavoriteJoke = (id,setJokeList) => {
+    let option = facade.makeOptions("PUT",true);
+    fetch(settingUrl.removeFavoriteJoke() + "/"+ id,option)
+    .then(handleHttpErrors)
+    .then(setTimeout(() => fetchFavoriteJokes(setJokeList), 75));
+  }
+
+
+  const fetchFavoriteJokes = (setJokeList) => {
+    let options = makeOptions("GET", true);
+    fetch(settingUrl.getFavoriteJokes(), options)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        data.jokeList ?  setJokeList(data.jokeList) : setJokeList([]);
+      });
+  };
+
 
   return {
     makeOptions,
@@ -189,6 +208,8 @@ function apiFacade() {
     deleteNonAdmins,
     fetchNonAdmins,
     addFavoriteJoke,
+    fetchFavoriteJokes,
+    removeFavoriteJoke,
   };
 }
 const facade = apiFacade();

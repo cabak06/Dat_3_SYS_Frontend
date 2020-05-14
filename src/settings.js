@@ -51,6 +51,11 @@ function URLS() {
       return URL;
     }
 
+    function removeFavoriteJoke(){
+      const URL = backendURL() + "/api/joke/remove_favorite"
+      return URL;
+    }
+
   return {
     backendURL,
     externalApi,
@@ -62,6 +67,7 @@ function URLS() {
     changePassword,
     addFavoriteJoke,
     getFavoriteJokes,
+    removeFavoriteJoke,
   };
 }
 const settingUrl = URLS();

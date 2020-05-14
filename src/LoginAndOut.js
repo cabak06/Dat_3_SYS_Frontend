@@ -25,11 +25,12 @@ function LogIn({ login, loginMsg }) {
     setLoginCredentials({ ...loginCredentials, [evt.target.id]: evt.target.value });
   };
   return (<div>
-    <h2>{loginMsg}</h2>
+    <h1>{loginMsg}</h1>
+    <hr/>
     <form onChange={onChange}>
-      <input placeholder="User Name" id="username" /> <br/>
+      <input placeholder="User Name" id="username" type="text"/> <br/>
       <input placeholder="Password" id="password" type="password"/> <br/>
-      <button onClick={performLogin}>Login</button>
+      <button onClick={performLogin} id="btn">Login</button>
     </form>
   </div>);
 }
@@ -43,8 +44,9 @@ function LoggedIn({ loginMsg, logout }) {
     }  
   }, []);
   return (<div>
-    <h2>This is where you logout</h2>
+    <h1>This is where you logout</h1>
+    <hr/>
     <h3>{dataFromServer}</h3>
-    <button onClick={logout}>{loginMsg}</button>
+    <button onClick={logout} id="btn">{loginMsg}</button>
   </div>);
 }

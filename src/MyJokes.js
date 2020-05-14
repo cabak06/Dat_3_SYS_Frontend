@@ -28,7 +28,7 @@ export function MyJokes() {
     <div>
       <h1>My Jokes</h1>
       <hr />
-      <button onClick={fetchJokes}>Press to fetch from API's!</button>
+      <button onClick={fetchJokes} id="btn">Press to fetch from API's!</button>
       <table border="1" width="50%">
         <thead>
           <tr>
@@ -43,10 +43,10 @@ export function MyJokes() {
               <tr key={joke.id}>
                 <td>{joke.jokeContent}</td>
                 <td align="center">
-                  <button onClick={() => editJoke(joke.id)}>EDIT</button>
+                  <button onClick={() => editJoke(joke.id)} id="tableBtn">EDIT</button>
                 </td>
                 <td align="center">
-                  <button onClick={() => deleteJoke(joke.id)}>DELETE</button>
+                  <button onClick={() => deleteJoke(joke.id)} id="tableBtn">DELETE</button>
                 </td>
               </tr>
             );

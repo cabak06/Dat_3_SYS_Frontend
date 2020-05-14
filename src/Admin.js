@@ -24,7 +24,7 @@ export function Admin() {
     <div style={{}}>
       <div>
       <h1>User Jokes</h1>
-      <button onClick={fetchJokes}>Press to reloade the table!</button>
+      <button onClick={fetchJokes} id="btn">Press to reloade the table!</button>
       <table border="1" width="40%">
         <thead>
           <tr>
@@ -40,7 +40,7 @@ export function Admin() {
                 <td>{joke.jokeContent}</td>
                 <td>{joke.createdBy}</td>
                 <td align="center">
-                  <button onClick={()=>deleteJoke(joke.id)}>DELETE</button>
+                  <button onClick={()=>deleteJoke(joke.id)} id="btn">DELETE</button>
                 </td>
               </tr>
             );

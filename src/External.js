@@ -32,7 +32,8 @@ export function External() {
   return (
     <div>
       <h1>External API</h1>
-      <button onClick={fetchExternalApi}>Press to fetch from API's!</button>
+      <hr/>
+      <button onClick={fetchExternalApi} id="btn">Press to fetch from API's!</button>
       <h2>Chuck Norris joke: </h2>
       <p>{norris}</p>
       <h2>Dad joke:</h2>

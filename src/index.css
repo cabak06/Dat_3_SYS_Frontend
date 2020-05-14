@@ -73,3 +73,53 @@ ul.header {
  .content {
   padding: 1px 16px;
 }
+
+table {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 70%;
+  background-color: rgb(197, 195, 195);
+}
+
+table td, table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+table tr:nth-child(even){background-color: rgb(187, 206, 189);}
+
+table tr:hover {background-color: rgb(253, 253, 253);}
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
+input[type=text],input[type=password],select {
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+textarea {
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type=submit], #btn, #btnSort {
+  padding: 7px 10px;
+  margin: 4px 0;
+  border: 1px solid rgb(39, 136, 180);
+  border-radius: 4px;
+  cursor: pointer;
+  min-width: 90px;
+}
+

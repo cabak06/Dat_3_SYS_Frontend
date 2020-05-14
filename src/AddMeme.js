@@ -106,11 +106,12 @@ export function AddMeme() {
   return (
     <div>
       <h1>Create your own meme</h1>
+      <hr/>
       <form onSubmit={submitHandler}>
-          <div style={{float: "left"}}>
-        <input type="input" value={memeTitle} onChange={changeHandlerMemeTitle} placeholder="Title of Meme"  style={{ width: "200px"}}/><br/>    
-        <input type="input" value={top} onChange={changeHandlerTop} placeholder="Top Text"  style={{ width: "200px"}}/><br/>
-        <input type="input" value={bottom} onChange={changeHandlerBottom} placeholder="Bottom Text"  style={{ width: "200px"}}/><br/>
+        <div style={{float: "left", paddingLeft: "100px", paddingTop: "10px"}}>
+        <input type="text" value={memeTitle} onChange={changeHandlerMemeTitle} placeholder="Title of Meme"  style={{ width: "200px"}}/><br/>    
+        <input type="text" value={top} onChange={changeHandlerTop} placeholder="Top Text"  style={{ width: "200px"}}/><br/>
+        <input type="text" value={bottom} onChange={changeHandlerBottom} placeholder="Bottom Text"  style={{ width: "200px"}}/><br/>
         <select onChange={changeHandlerTemplate} style={{ width: "200px"}}>
         {memeTemplates.map(meme =>{return(<option value={meme.id}>{meme.name}</option>)})}
         </select>
@@ -123,7 +124,7 @@ export function AddMeme() {
           checked={nsfw}
         />
         <label htmlFor="nsfwCheck">NSFW?</label><br/>
-        <input type="submit" value="Submit Meme" />
+        <input type="submit" value="Submit Meme" id="btn"/>
         </div>
         <div style={{float: "left", paddingLeft: "200px"}}>
             <img src={"https://memegen.link/" + modifyString(template_id) + "/Top_Text/Bottom_Text.jpg"} width="50%"/>

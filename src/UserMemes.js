@@ -17,8 +17,9 @@ export function UserMemes() {
 
   return (
     <div>
-      <h1 style={{fontSize: "45px"}}>User-submitted Memes</h1>
-      <button onClick={fetchInternalMemes}>Press to fetch from API's!</button>
+      <h1>User-submitted Memes</h1>
+      <hr/>
+      <button onClick={fetchInternalMemes} id="btn">Press to fetch from API's!</button>
 
       {userMemes.map((meme) => {
         return (

@@ -45,6 +45,7 @@ export function AddJoke() {
   return (
     <div>
       <h1>Add your joke</h1>
+      <hr/>
       <form onSubmit={submitHandler}>
         <textarea
           style={{resize: "none"}}

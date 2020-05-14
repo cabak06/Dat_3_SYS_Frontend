@@ -13,16 +13,14 @@ function fetchJokes() {
 
  
 
-  const removeJoke = (id) => {
+const removeJoke = (id) => {
   facade.removeFavoriteJoke(id, setJokeList);
-  
-
 };
 
 return (
     <div>
         <h1>My Favorite Jokes</h1>
-
+        <hr/>
         <table border="1" width="50%">
         <thead>
           <tr>
@@ -37,7 +35,7 @@ return (
               <tr key={joke.id}>
                 <td>{joke.jokeContent}</td>
                 <td align="center">
-                  <button onClick={() => removeJoke(joke.id)}>Remove</button>
+                  <button onClick={() => removeJoke(joke.id)} id="tableBtn">Remove</button>
                 </td>
               </tr>
             );

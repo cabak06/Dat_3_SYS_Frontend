@@ -54,10 +54,11 @@ function addToFavoriteList(id){
   return (
     <div>
       <h1>UserJoke</h1>
-      <button onClick={fetchInternalJokes}>Press to fetch from API's!</button>
-      <button onClick={sortNewest}>Sort by Newest</button>
-      <button onClick={sortOldest}>Sort by Oldest</button>
-      <button onClick={sortByCreator}>Sort by User</button>
+      <hr/>
+      <button onClick={fetchInternalJokes} id="btn">Press to fetch from API's!</button>
+      <button onClick={sortNewest} id="btnSort">Sort by Newest</button>
+      <button onClick={sortOldest} id="btnSort">Sort by Oldest</button>
+      <button onClick={sortByCreator} id="btnSort">Sort by User</button>
      <br/><br/>
       <table border="1" width="50%">
         <thead>
@@ -74,7 +75,7 @@ function addToFavoriteList(id){
                 <td>{joke.jokeContent}</td>
                 <td>{joke.createdBy}</td>
                 <td align="center">
-                  <button onClick={() => addToFavoriteList(joke.id)}>Add Favorite</button>
+                  <button onClick={() => addToFavoriteList(joke.id)} id="tableBtn">Add Favorite</button>
                 </td>
               </tr>
             );

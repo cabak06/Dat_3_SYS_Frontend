@@ -40,9 +40,8 @@ export function Register() {
 
   return (
     <>
-      <h3>Register a new account</h3>
-      <p>
-        Username:{" "}
+      <h1>Register a new account</h1>
+      <hr/>
         <input
           type="text"
           placeholder="Username"
@@ -50,18 +49,16 @@ export function Register() {
           value={user.username}
           onChange={changeHandler}
         />
-      </p>
-      <p>
-        Password:{" "}
+        <br/>
         <input
           type="password"
           placeholder="Password"
           id="password"
           value={user.password}
           onChange={changeHandler}
-        />
-      </p>
-      <button onClick={submitHandler}>Sign Up</button>
+        /> 
+        <br/>
+      <button onClick={submitHandler} id="btn">Sign Up</button>
       {error && (
         <>
           <br />

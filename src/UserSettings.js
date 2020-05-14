@@ -63,17 +63,24 @@ export function UserSettings() {
 
   return (
     <div>
-      <h1>Hello UserSettings</h1>
-      <br />
+      <h1>Change Password</h1>
       <hr />
-      <h3>Change Password</h3>
-
+      
+    <div align="Center">
+    <div width="60%">
+    <p style={{width: "50%", textAlign:"left", fontSize: "17px"}}>
+      <i>Please note that when changing your password, we ask you to set yourself a secure password that contains both
+      uppercase letters, lowercase letters, numbers and needs to be between 5 and 20 characters. This is for your own safty.
+      </i>
+    </p>
+    </div>
       <input
         id="oldPassword"
         placeholder="Enter Current Password"
         value={passwords.oldPassword}
         type="password"
         onChange={handleChangePw}
+        style={{width: 200}}
       />
       <br />
       <br />
@@ -95,14 +102,14 @@ export function UserSettings() {
       />
       <br />
       <br />
-      <button onClick={handleSubmit}>Submit Changes</button>
+      <button onClick={handleSubmit} id="btn">Submit Changes</button>
       <br />
       {msg.msg && (
         <>
           <p style={{ color: msg.error ? "red" : "green" }}>{msg.msg}</p>
-          <br />
         </>
       )}
+      </div>
     </div>
   );
 }

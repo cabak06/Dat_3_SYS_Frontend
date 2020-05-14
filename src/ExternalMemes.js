@@ -24,7 +24,8 @@ export function ExternalMeme() {
   return (
     <div>
       <h1>External Meme's</h1>
-      <button onClick={fetchExternalApi}>Press to update meme's!</button>
+      <hr/>
+      <button onClick={fetchExternalApi} id="btn">Press to update meme's!</button>
       <h2>Reddit Meme: </h2>
       <img src={reddit} alt="new" style={{ width: "30%" }} />
       <hr />

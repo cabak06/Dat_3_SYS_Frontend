@@ -140,7 +140,7 @@ function apiFacade() {
     let options = facade.makeOptions("DELETE", true);
     fetch(URL + deleteURL + id, options)
       .then(console.log("Delete done on joke ID: " + id))
-      .then(setTimeout(() => fetchInternalJokes(fetchURL, setJokeList), 75));
+      .then(setTimeout(() => fetchInternalJokes(fetchURL, setJokeList), 1000));
   };
 
 //Meme function;
@@ -149,14 +149,14 @@ function apiFacade() {
     let options = facade.makeOptions("DELETE", true);
     fetch(URL + deleteURL + id, options)
       .then(console.log("Delete done on meme ID: " + id))
-      .then(setTimeout(() => fetchInternalMemes(fetchURL, setMemeList), 75));
+      .then(setTimeout(() => fetchInternalMemes(fetchURL, setMemeList), 1000));
   };
 
 
   const deleteNonAdmins = (fetchURL, setUserList) => {
     let options = facade.makeOptions("DELETE", true);
     fetch(URL + fetchURL, options)
-      .then(setTimeout(() => fetchNonAdmins("/api/user/allNonAdminUsers", setUserList), 75));
+      .then(setTimeout(() => fetchNonAdmins("/api/user/allNonAdminUsers", setUserList), 1000));
   };
 
   const editOwnJoke = (body) => {
@@ -182,7 +182,7 @@ function apiFacade() {
     let option = facade.makeOptions("PUT",true);
     fetch(settingUrl.removeFavoriteJoke() + "/"+ id,option)
     .then(handleHttpErrors)
-    .then(setTimeout(() => fetchFavoriteJokes(setJokeList), 75));
+    .then(setTimeout(() => fetchFavoriteJokes(setJokeList), 1000));
   }
 
 
@@ -209,7 +209,7 @@ function apiFacade() {
     let option = facade.makeOptions("PUT",true);
     fetch(settingUrl.removeFavoriteExternalJoke() + "/"+ id,option)
     .then(handleHttpErrors)
-    .then(setTimeout(() => fetchFavoriteExternalJokes(setJokeList), 75));
+    .then(setTimeout(() => fetchFavoriteExternalJokes(setJokeList), 1000));
   }
 
 

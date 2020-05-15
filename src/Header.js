@@ -61,12 +61,18 @@ export function Header({ isLoggedIn, loginMsg }) {
                     
                   )}
                     {facade.isUser() && (
+                    <>
                     <li>
                       <NavLink activeClassName="active" to="/favorite-jokes">
                        My Favorite Jokes
                       </NavLink>
                     </li>
-                    
+                    <li>
+                    <NavLink activeClassName="active" to="/favorite-exJokes">
+                     My Favorite External Jokes
+                    </NavLink>
+                  </li>
+                  </>
                   )}
                 </div>
               </div>

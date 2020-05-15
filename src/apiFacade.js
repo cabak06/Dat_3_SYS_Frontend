@@ -143,6 +143,15 @@ function apiFacade() {
       .then(setTimeout(() => fetchInternalJokes(fetchURL, setJokeList), 75));
   };
 
+//Meme function;
+  const deleteMeme = (id, fetchURL, setMemeList) => {
+    let deleteURL = isAdmin() ? "/api/meme/delete/" : "";
+    let options = facade.makeOptions("DELETE", true);
+    fetch(URL + deleteURL + id, options)
+      .then(console.log("Delete done on meme ID: " + id))
+      .then(setTimeout(() => fetchInternalMemes(fetchURL, setMemeList), 75));
+  };
+
 
   const deleteNonAdmins = (fetchURL, setUserList) => {
     let options = facade.makeOptions("DELETE", true);
@@ -210,6 +219,7 @@ function apiFacade() {
     addFavoriteJoke,
     fetchFavoriteJokes,
     removeFavoriteJoke,
+    deleteMeme,
   };
 }
 const facade = apiFacade();

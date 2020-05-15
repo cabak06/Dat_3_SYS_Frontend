@@ -113,7 +113,7 @@ export function AddMeme() {
         <input type="text" value={top} onChange={changeHandlerTop} placeholder="Top Text"  style={{ width: "200px"}}/><br/>
         <input type="text" value={bottom} onChange={changeHandlerBottom} placeholder="Bottom Text"  style={{ width: "200px"}}/><br/>
         <select onChange={changeHandlerTemplate} style={{ width: "200px"}}>
-        {memeTemplates.map(meme =>{return(<option value={meme.id}>{meme.name}</option>)})}
+        {memeTemplates.map(meme =>{return(<option key={meme.id} value={meme.id}>{meme.name}</option>)})}
         </select>
         <br />
         <input

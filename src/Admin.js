@@ -49,7 +49,7 @@ export function Admin() {
                 <td>{joke.jokeContent}</td>
                 <td>{joke.createdBy}</td>
                 <td align="center">
-                  <button onClick={()=>deleteJoke(joke.id)} id="btn">DELETE</button>
+                  <button onClick={()=>deleteJoke(joke.id)} id="tableBtn">DELETE</button>
                 </td>
               </tr>
             );
@@ -59,7 +59,7 @@ export function Admin() {
       </div>
       <div style={{}}>
       <h1>Delete users</h1>
-      <button onClick={fetchUsers}>Press to reloade the table!</button>
+      <button onClick={fetchUsers} id="btn">Press to reloade the table!</button>
       <table border="1" width="40%" >
         <thead>
           <tr>
@@ -87,7 +87,8 @@ export function Admin() {
       <table border="1" width="40%">
         <thead>
           <tr>
-            <th>Meme-ID</th>
+            <th width="150px">Meme</th>
+            <th width="80px">Meme-ID</th>
             <th>Title</th>
             <th width="150px">Created By</th>
             <th width="50px"></th>
@@ -97,11 +98,12 @@ export function Admin() {
           {memeList.map((meme) => {
             return (
               <tr key={meme.id}>
-                <td>{meme.id}</td>
+                <td width="150px"><img src={meme.picturePath} alt="new" style={{ width: "100%" }} /></td>
+                <td width="80px">{meme.id}</td>
                 <td>{meme.title}</td>
-                <td>{meme.createdBy}</td>
-                <td align="center">
-                  <button onClick={()=>deleteMeme(meme.id)} id="btn">DELETE</button>
+                <td width="150px">{meme.createdBy}</td>
+                <td align="center" width="50px">
+                  <button onClick={()=>deleteMeme(meme.id)} id="tableBtn">DELETE</button>
                 </td>
               </tr>
             );

@@ -55,6 +55,23 @@ function URLS() {
       const URL = backendURL() + "/api/joke/remove_favorite"
       return URL;
     }
+    
+    //For external jokes - down
+    function addFavoriteExternalJoke(){
+      const URL = backendURL() + "/api/externalJoke/favorite"
+      return URL;
+    }
+
+    function getFavoriteExternalJokes(){
+      const URL = backendURL() + "/api/externalJoke/favorites"
+      return URL;
+    }
+
+    function removeFavoriteExternalJoke(){
+      const URL = backendURL() + "/api/externalJoke/remove_favorite"
+      return URL;
+    }
+
 
   return {
     backendURL,
@@ -68,6 +85,9 @@ function URLS() {
     addFavoriteJoke,
     getFavoriteJokes,
     removeFavoriteJoke,
+    removeFavoriteExternalJoke,
+    getFavoriteExternalJokes,
+    addFavoriteExternalJoke
   };
 }
 const settingUrl = URLS();

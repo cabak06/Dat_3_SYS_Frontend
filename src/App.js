@@ -13,6 +13,7 @@ import { ExternalMeme } from "./ExternalMemes";
 import { AddMeme } from "./AddMeme";
 import { UserSettings } from "./UserSettings";
 import { FavoriteJokes } from "./FavoriteJokes";
+import { FavoriteExternalJoke } from "./FavoriteExternalJoke";
 
 export default App;
 
@@ -67,6 +68,9 @@ function App() {
             </Route>
             <Route path="/favorite-jokes">
               <FavoriteJokes/>
+            </Route>
+            <Route path="/favorite-exJokes">
+              <FavoriteExternalJoke/>
             </Route>
             <Route path="/login-out">
               <LoginAndOut

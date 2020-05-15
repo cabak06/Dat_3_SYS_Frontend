@@ -196,6 +196,33 @@ function apiFacade() {
       });
   };
 
+  const addFavoriteExternalJoke = (joke) => {
+    let option = facade.makeOptions("PUT",true, joke);
+    fetch(settingUrl.addFavoriteExternalJoke(), option)
+    .then(handleHttpErrors)
+    .then((data) => {
+      console.log(data);
+    });
+  }
+
+  const removeFavoriteExternalJoke = (id,setJokeList) => {
+    let option = facade.makeOptions("PUT",true);
+    fetch(settingUrl.removeFavoriteExternalJoke() + "/"+ id,option)
+    .then(handleHttpErrors)
+    .then(setTimeout(() => fetchFavoriteExternalJokes(setJokeList), 75));
+  }
+
+
+  const fetchFavoriteExternalJokes = (setJokeList) => {
+    let options = makeOptions("GET", true);
+    fetch(settingUrl.getFavoriteExternalJokes(), options)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        data.ExternalJokeList ?  setJokeList(data.ExternalJokeList) : setJokeList([]);
+      });
+  };
+
 
   return {
     makeOptions,
@@ -220,6 +247,9 @@ function apiFacade() {
     fetchFavoriteJokes,
     removeFavoriteJoke,
     deleteMeme,
+    addFavoriteExternalJoke,
+    removeFavoriteExternalJoke,
+    fetchFavoriteExternalJokes,
   };
 }
 const facade = apiFacade();

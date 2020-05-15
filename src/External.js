@@ -65,21 +65,21 @@ export function External() {
       <h2>Chuck Norris joke: </h2>
       <p>{norris.jokeContent}</p>
       {facade.loggedIn() && (
-        <button onClick={addToFavoriteExList} value={norris.jokeType}>
+        <button onClick={addToFavoriteExList} value={norris.jokeType} id="btn">
           Favorite
         </button>
       )}
       <h2>Dad joke:</h2>
       <p>{dad.jokeContent}</p>
       {facade.loggedIn() && (
-        <button onClick={addToFavoriteExList} value={dad.jokeType}>
+        <button onClick={addToFavoriteExList} value={dad.jokeType} id="btn">
           Favorite
         </button>
       )}
       <h2>Joker joke:</h2>
       <p style={{ color: jokeAllowed(joker) ? "black" : "red" }}>{joker.jokeContent}</p>
       {jokeAllowed(joker) && facade.loggedIn() && (
-        <button onClick={addToFavoriteExList} value={joker.jokeType}>
+        <button onClick={addToFavoriteExList} value={joker.jokeType} id="btn">
           Favorite
         </button>
       )}
